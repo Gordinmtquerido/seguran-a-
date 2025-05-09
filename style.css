@@ -8,6 +8,8 @@
     --borda: #0075FF;
     --roboto: 'Roboto', sans-serif;
     --roboto-mono: 'Roboto Mono', monospace;
+    --verde-botao: #00FF85;
+    --verde-botao-hover: #00cc6a;
 }
 
 * {
@@ -39,19 +41,27 @@ body {
     background: var(--fundo-senha);
     padding: 24px;
     border-bottom: 6px solid var(--borda);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #campo-senha {
     background-color: var(--fundo-senha);
-    border: none;
+    border: 2px solid var(--borda);
     color: var(--branco);
     font-family: var(--roboto-mono);
     font-size: 40px;
-    width: 70%;
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 #campo-senha:focus {
     outline: none;
+    border-color: var(--verde-botao);
 }
 
 .conteudo {
@@ -110,6 +120,8 @@ body {
 
 label {
     font-size: 20px;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .checkbox {
@@ -141,7 +153,7 @@ label {
 }
 
 .forte {
-    background-color: #00FF85;
+    background-color: var(--verde-botao);
     width: 100%;
 }
 
@@ -150,9 +162,50 @@ label {
     justify-content: space-between;
 }
 
+/* Estilos para o botão Gerar Senha */
+#gerar-senha {
+    background-color: var(--verde-botao);
+    color: var(--cor-de-fundo);
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-family: var(--roboto-mono);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
 
+#gerar-senha:hover {
+    background-color: var(--verde-botao-hover);
+    transform: translateY(-2px);
+}
+
+#gerar-senha:active {
+    transform: translateY(0);
+}
+
+/* Ajustes para responsividade */
 @media screen and (min-width: 768px) {
     .parametro-coluna__senha {
         flex-direction: row;
+    }
+    
+    .conteudo-senha {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    #campo-senha {
+        width: 70%;
+        margin-bottom: 0;
+    }
+    
+    #gerar-senha {
+        margin-top: 0;
+        align-self: center;
     }
 }
